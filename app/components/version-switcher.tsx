@@ -12,6 +12,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "~/components/ui/sidebar"
+import { Link } from "react-router"
 
 export function VersionSwitcher({
   versions,
@@ -47,13 +48,15 @@ export function VersionSwitcher({
             align="start"
           >
             {versions.map((version) => (
-              <DropdownMenuItem
-                key={version}
-                onSelect={() => setSelectedVersion(version)}
-              >
-                v{version}{" "}
-                {version === selectedVersion && <Check className="ml-auto" />}
-              </DropdownMenuItem>
+              <Link to="/">
+                <DropdownMenuItem
+                  key={version}
+                  onSelect={() => setSelectedVersion(version)}
+                >
+                  v{version}{" "}
+                  {version === selectedVersion && <Check className="ml-auto" />}
+                </DropdownMenuItem>
+              </Link>
             ))}
           </DropdownMenuContent>
         </DropdownMenu>

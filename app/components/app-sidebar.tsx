@@ -63,6 +63,16 @@ const data = {
         },
       ],
     },
+    {
+      title: "Dashboard",
+      url: "/",
+      items: [
+        {
+          title: "Bienvenida",
+          url: "/",
+        },
+      ],
+    },
   ],
 }
 
