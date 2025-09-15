@@ -1,6 +1,6 @@
 import { redirect, type ActionFunctionArgs } from "react-router";
 import { CustomerForm } from "~/components/customers/customer-form";
-import { ApiError } from "~/lib/api";
+import { ApiError } from "~/lib/api-client";
 import { customerService } from "~/services/customer-service";
 
 export async function action({ request }: ActionFunctionArgs) {

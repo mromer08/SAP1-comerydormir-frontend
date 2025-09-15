@@ -1,6 +1,6 @@
 import { redirect, type ActionFunctionArgs, type LoaderFunctionArgs } from "react-router";
 import { EditCustomerForm } from "~/components/customers/edit-customer-form";
-import { ApiError } from "~/lib/api";
+import { ApiError } from "~/lib/api-client";
 import { customerService } from "~/services/customer-service";
 
 // Loader para obtener los datos del cliente

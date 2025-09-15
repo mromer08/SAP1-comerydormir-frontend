@@ -1,4 +1,4 @@
-import { apiClient, ApiError } from "~/lib/api";
+import { apiClient, ApiError } from "~/lib/api-client";
 import type { CreateCustomerRequest, CustomerResponseDTO, FindCustomersRequest, UpdateCustomerRequest } from "~/types/customer";
 import type { PagedResponseDTO } from "~/types/generic";
 

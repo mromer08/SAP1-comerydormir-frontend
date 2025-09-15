@@ -8,7 +8,7 @@ import type {
   FindHotelRoomsRequest 
 } from '~/types/hotel';
 import type { PagedResponseDTO } from '~/types/generic';
-import { apiClient, ApiError } from '~/lib/api';
+import { apiClient, ApiError } from '~/lib/api-client';
 
 class HotelService {
   private basePath = '/api/v1/hotels';

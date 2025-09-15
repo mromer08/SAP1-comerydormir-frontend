@@ -1,6 +1,6 @@
 // routes/clients/delete-customer.tsx
 import { redirect, type ActionFunctionArgs } from "react-router";
-import { ApiError } from "~/lib/api";
+import { ApiError } from "~/lib/api-client";
 import { customerService } from "~/services/customer-service";
 
 export async function action({ request }: ActionFunctionArgs) {
