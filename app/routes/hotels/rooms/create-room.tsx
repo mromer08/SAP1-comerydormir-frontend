@@ -16,11 +16,40 @@ export async function loader({ request }: LoaderFunctionArgs) {
   } catch (error: any) {
     console.error("Error loading hotels:", error);
     
-    if (error instanceof ApiError && error.status === 404) {
-      return { content: [] };
+    // Error de fetching
+    if (error.message?.includes('fetch failed') || error.message?.includes('ECONNREFUSED')) {
+      console.warn("API no disponible, devolviendo hoteles vacíos");
+      return { 
+        content: [],
+        totalPages: 0,
+        totalElements: 0,
+        size: 0,
+        number: 0
+      };
     }
     
-    throw new Response("Error al cargar los hoteles", { status: 500 });
+    if (error instanceof ApiError && error.status === 404) {
+      return { 
+        content: [],
+        totalPages: 0,
+        totalElements: 0,
+        size: 0,
+        number: 0
+      };
+    }
+    
+    // Para otros errores
+    console.warn("Error inesperado, devolviendo hoteles vacíos:", error.message);
+    return { 
+      content: [],
+      totalPages: 0,
+      totalElements: 0,
+      size: 0,
+      number: 0
+    };
+    
+    // propagar el error
+    // throw new Response("Error al cargar los hoteles", { status: 500 });
   }
 }
 
