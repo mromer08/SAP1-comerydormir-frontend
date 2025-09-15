@@ -1,10 +1,12 @@
 import {
   isRouteErrorResponse,
+  Link,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
+  useNavigate,
 } from "react-router";
 
 import type { Route } from "./+types/root";
@@ -45,7 +47,10 @@ export default function App() {
   return <Outlet />;
 }
 
+
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  const navigate = useNavigate();
+
   let message = "Oops!";
   let details = "An unexpected error occurred.";
   let stack: string | undefined;
@@ -62,14 +67,32 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
+    <main className="flex flex-col items-center justify-center h-screen gap-6 p-4 text-center">
+      <div>
+        <h1 className="text-5xl font-bold mb-2">{message}</h1>
+        <p className="text-muted-foreground text-lg">{details}</p>
+      </div>
+
       {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
+        <pre className="w-full max-w-2xl p-4 overflow-x-auto text-left bg-muted rounded-lg">
           <code>{stack}</code>
         </pre>
       )}
+
+      <div className="flex gap-3">
+        <button
+          onClick={() => navigate(-1)}
+          className="rounded-lg bg-secondary px-4 py-2 text-secondary-foreground hover:opacity-90"
+        >
+          Regresar
+        </button>
+        <Link
+          to="/"
+          className="rounded-lg bg-primary px-4 py-2 text-primary-foreground hover:opacity-90"
+        >
+          Ir al inicio
+        </Link>
+      </div>
     </main>
   );
 }
