@@ -11,7 +11,7 @@ import type { PagedResponseDTO } from '~/types/generic';
 import { apiClient, ApiError } from '~/lib/api-client';
 
 class HotelService {
-  private basePath = '/api/v1/hotels';
+  private basePath = '/establishment/api/v1/hotels';
 
   private async handleError(error: any): Promise<never> {
     console.error('Hotel API Error:', error);

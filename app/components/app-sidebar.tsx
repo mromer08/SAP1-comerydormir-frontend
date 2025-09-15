@@ -59,7 +59,7 @@ const data = {
         },
         {
           title: "Listado de hoteles",
-          url: "/hotels/list",
+          url: "/hotels",
         },
       ],
     },

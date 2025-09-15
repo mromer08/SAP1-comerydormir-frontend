@@ -11,10 +11,10 @@ export default [
     route("clients/delete-customer", "routes/clients/delete-customer.tsx"),
 
     // Hoteles
-    // route("hotels", "routes/hotels/index.tsx"),
+    route("hotels", "routes/hotels/index.tsx"),
     // route("hotels/register", "routes/hotels/create-hotel.tsx"),
     // route("hotels/:id/edit", "routes/hotels/edit-hotel.tsx"),
-    // route("hotels/delete-hotel", "routes/hotels/delete-hotel.tsx"),
+    route("hotels/delete-hotel", "routes/hotels/delete-hotel.tsx"),
     
     // // Habitaciones
     // route("hotels/rooms", "routes/hotels/rooms/index.tsx"),
