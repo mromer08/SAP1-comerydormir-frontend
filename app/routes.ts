@@ -12,13 +12,13 @@ export default [
 
     // Hoteles
     route("hotels", "routes/hotels/index.tsx"),
-    // route("hotels/register", "routes/hotels/create-hotel.tsx"),
+    route("hotels/register", "routes/hotels/create-hotel.tsx"),
     // route("hotels/:id/edit", "routes/hotels/edit-hotel.tsx"),
     route("hotels/delete-hotel", "routes/hotels/delete-hotel.tsx"),
     
     // // Habitaciones
-    // route("hotels/rooms", "routes/hotels/rooms/index.tsx"),
-    // route("hotels/rooms/register", "routes/hotels/rooms/create-room.tsx"),
+    route("hotels/rooms", "routes/hotels/rooms/index.tsx"),
+    route("hotels/rooms/register", "routes/hotels/rooms/create-room.tsx"),
     // route("hotels/rooms/:id/edit", "routes/hotels/rooms/edit-room.tsx"),
     // route("hotels/rooms/delete-room", "routes/hotels/rooms/delete-room.tsx"),
   ]),

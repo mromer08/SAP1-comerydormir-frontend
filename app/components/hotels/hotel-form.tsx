@@ -7,6 +7,8 @@ import { Label } from "~/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
 import { Alert, AlertDescription } from "~/components/ui/alert";
 import type { CreateHotelRequest } from "~/types/hotel";
+import { hotelService } from "~/services/hotels-service";
+import { Checkbox } from "../ui/checkbox";
 
 export function HotelForm() {
   const navigate = useNavigate();

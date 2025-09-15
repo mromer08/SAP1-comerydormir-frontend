@@ -55,7 +55,7 @@ const data = {
         },
         {
           title: "Listado de habitaciones",
-          url: "/hotels/rooms/list",
+          url: "/hotels/rooms",
         },
         {
           title: "Listado de hoteles",

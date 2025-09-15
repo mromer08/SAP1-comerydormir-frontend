@@ -112,11 +112,11 @@ export function HotelsTable({ data }: HotelsTableProps) {
                 </TableCell>
                 <TableCell>
                   <div className="flex gap-2">
-                    <Button asChild variant="outline" size="sm">
+                    {/* <Button asChild variant="outline" size="sm">
                       <Link to={`/hotels/${hotel.id}/edit`}>
                         Editar
                       </Link>
-                    </Button>
+                    </Button> */}
                     <Button 
                       variant="outline" 
                       size="sm"
