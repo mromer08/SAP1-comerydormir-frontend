@@ -1,6 +1,6 @@
 // components/customers-table.tsx
 import { useState } from "react";
-import { useFetcher, useLoaderData, useNavigate, useSearchParams } from "react-router";
+import { Link, useFetcher, useLoaderData, useNavigate, useSearchParams } from "react-router";
 import type { CustomerResponseDTO } from "~/types/customer";
 import type { PagedResponseDTO } from "~/types/generic";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
@@ -94,7 +94,7 @@ export function CustomersTable() {
         <h3 className="text-lg font-medium mb-2">Sin clientes registrados</h3>
         <p className="text-muted-foreground mb-4">No se encontraron clientes que coincidan con los criterios de búsqueda.</p>
         <Button asChild>
-          <a href="/clients/register">Registrar primer cliente</a>
+          <Link to="/clients/register">Registrar primer cliente</Link>
         </Button>
       </div>
     );
