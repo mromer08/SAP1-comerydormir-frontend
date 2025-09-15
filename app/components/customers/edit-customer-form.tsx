@@ -73,7 +73,7 @@ export function EditCustomerForm() {
               {actionData?.errors?.firstName && (
                 <p className="text-sm text-destructive">{actionData.errors.firstName}</p>
               )}
-              <p className="text-sm text-muted-foreground">Nombre del cliente</p>
+              {/* <p className="text-sm text-muted-foreground">Nombre del cliente</p> */}
             </div>
 
             <div className="space-y-2">
@@ -90,7 +90,7 @@ export function EditCustomerForm() {
               {actionData?.errors?.lastName && (
                 <p className="text-sm text-destructive">{actionData.errors.lastName}</p>
               )}
-              <p className="text-sm text-muted-foreground">Apellido del cliente</p>
+              {/* <p className="text-sm text-muted-foreground">Apellido del cliente</p> */}
             </div>
           </div>
 
@@ -109,7 +109,7 @@ export function EditCustomerForm() {
             {actionData?.errors?.nit && (
               <p className="text-sm text-destructive">{actionData.errors.nit}</p>
             )}
-            <p className="text-sm text-muted-foreground">9 dígitos numéricos sin guiones</p>
+            {/* <p className="text-sm text-muted-foreground">9 dígitos numéricos sin guiones</p> */}
           </div>
 
           <div className="space-y-2">
@@ -121,8 +121,12 @@ export function EditCustomerForm() {
               value={formData.phoneNumber}
               onChange={handleInputChange}
               disabled={isLoading}
+              className={actionData?.errors?.firstName ? "border-destructive" : ""}
             />
-            <p className="text-sm text-muted-foreground">Número de teléfono del cliente</p>
+            {actionData?.errors?.phoneNumber && (
+              <p className="text-sm text-destructive">{actionData.errors.phoneNumber}</p>
+            )}
+            {/* <p className="text-sm text-muted-foreground">Número de teléfono del cliente</p> */}
           </div>
 
           <div className="flex gap-4 justify-end pt-4">

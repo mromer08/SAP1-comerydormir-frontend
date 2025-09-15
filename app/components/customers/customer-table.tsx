@@ -1,6 +1,6 @@
 // components/customers-table.tsx
 import { useState } from "react";
-import { useLoaderData, useNavigate, useSearchParams } from "react-router";
+import { useFetcher, useLoaderData, useNavigate, useSearchParams } from "react-router";
 import type { CustomerResponseDTO } from "~/types/customer";
 import type { PagedResponseDTO } from "~/types/generic";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
@@ -19,6 +19,26 @@ export function CustomersTable() {
   const handleEdit = (customerId: string) => {
     navigate(`/clients/${customerId}/edit`);
   };
+
+  const fetcher = useFetcher();
+
+  const handleDeactivate = (customer: CustomerResponseDTO) => {
+    if (confirm(`¿Estás seguro de desactivar a ${customer.firstName} ${customer.lastName}?`)) {
+      fetcher.submit(
+        {
+          id: customer.id,
+          redirectTo: "/clients"
+        },
+        {
+          method: "POST",
+          action: "/clients/delete-customer"
+        }
+      );
+    }
+  };
+
+  // Mostrar estado de carga
+  const isDeactivating = fetcher.state !== "idle";
 
   const currentPage = parseInt(searchParams.get("page") || "1");
   const pageSize = parseInt(searchParams.get("size") || "10");
@@ -109,6 +129,15 @@ export function CustomersTable() {
                 <TableCell>
                   <Button variant="outline" size="sm" onClick={() => handleEdit(customer.id)}>
                     Editar
+                  </Button>
+                  {/* Botón de Desactivar con Form */}
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => handleDeactivate(customer)}
+                    disabled={!customer.active || isDeactivating}
+                  >
+                    {isDeactivating ? "Desactivando..." : "Desactivar"}
                   </Button>
                 </TableCell>
               </TableRow>

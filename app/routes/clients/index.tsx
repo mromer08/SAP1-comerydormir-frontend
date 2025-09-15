@@ -1,9 +1,10 @@
+import { Link } from "react-router";
 import { CustomersTable } from "~/components/customers/customer-table";
 import { Button } from "~/components/ui/button";
 import { customerService } from "~/services/customer-service";
 
 export async function loader({ request }: { request: Request }) {
-  console.log('🔍 Loader called with request:', request.url);
+  console.log('Loader called with request:', request.url);
 
   try {
     const response = await customerService.getAllCustomers();
@@ -41,7 +42,7 @@ export default function ClientsPage() {
           {/* barra buscador después */}
         </div>
         <Button asChild>
-          <a href="/clients/register">Nuevo Cliente</a>
+          <Link to="/clients/register">Nuevo Cliente</Link>
         </Button>
       </div>
 
