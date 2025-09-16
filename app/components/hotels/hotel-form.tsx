@@ -145,7 +145,7 @@ export function HotelForm() {
           {/* Ubicación */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <Label htmlFor="city">Ciudad *</Label>
+              <Label htmlFor="city">Departamento *</Label>
               <Input
                 id="city"
                 name="city"
