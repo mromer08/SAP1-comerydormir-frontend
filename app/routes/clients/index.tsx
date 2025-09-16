@@ -5,9 +5,12 @@ import { customerService } from "~/services/customer-service";
 
 export async function loader({ request }: { request: Request }) {
   console.log('Loader called with request:', request.url);
+  const url = new URL(request.url);
+  const page = parseInt(url.searchParams.get("page") || "0");
+  const size = parseInt(url.searchParams.get("size") || "10");
 
   try {
-    const response = await customerService.getAllCustomers();
+    const response = await customerService.getAllCustomers({ page, size });
     console.log('Loader response:', response);
     
     return Response.json(response);

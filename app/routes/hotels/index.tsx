@@ -13,7 +13,7 @@ export async function loader({ request }: { request: Request }) {
   const size = parseInt(url.searchParams.get("size") || "10");
 
   try {
-    const response = await hotelService.getAllHotels();
+    const response = await hotelService.getAllHotels({ page, size });
     console.log("Loaded hotels:", response);
     return Response.json(response);
   } catch (error) {

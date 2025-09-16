@@ -102,7 +102,7 @@ export function RoomForm() {
           {/* Precios */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <Label htmlFor="productionCost">Costo de Producción *</Label>
+              <Label htmlFor="productionCost">Costo de mantenimiento p/noche *</Label>
               <Input
                 id="productionCost"
                 name="productionCost"
@@ -120,7 +120,7 @@ export function RoomForm() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="salePrice">Precio de Venta *</Label>
+              <Label htmlFor="salePrice">Precio p/noche *</Label>
               <Input
                 id="salePrice"
                 name="salePrice"

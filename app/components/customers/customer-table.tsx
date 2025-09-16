@@ -40,7 +40,7 @@ export function CustomersTable() {
   // Mostrar estado de carga
   const isDeactivating = fetcher.state !== "idle";
 
-  const currentPage = parseInt(searchParams.get("page") || "1");
+  const currentPage = parseInt(searchParams.get("page") || "0");
   const pageSize = parseInt(searchParams.get("size") || "10");
 
   const handlePageChange = (newPage: number) => {
@@ -136,6 +136,7 @@ export function CustomersTable() {
                     size="sm"
                     onClick={() => handleDeactivate(customer)}
                     disabled={!customer.active || isDeactivating}
+                    className="text-destructive border-destructive hover:bg-destructive hover:text-destructive-foreground"
                   >
                     {isDeactivating ? "Desactivando..." : "Desactivar"}
                   </Button>
@@ -166,9 +167,9 @@ export function CustomersTable() {
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
-                    handlePageChange(index + 1);
+                    handlePageChange(index);
                   }}
-                  isActive={currentPage === index + 1}
+                  isActive={currentPage === index}
                 >
                   {index + 1}
                 </PaginationLink>

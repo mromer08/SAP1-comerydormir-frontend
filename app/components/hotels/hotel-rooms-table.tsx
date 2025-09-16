@@ -55,8 +55,8 @@ export function HotelRoomsTable({ data }: HotelRoomsTableProps) {
               <TableHead>Descripción</TableHead>
               <TableHead>Hotel</TableHead>
               <TableHead>Capacidad</TableHead>
-              <TableHead>Precio</TableHead>
-              <TableHead>Costo Producción</TableHead>
+              <TableHead>Precio p/noche</TableHead>
+              <TableHead>Costo de mantenimiento p/noche</TableHead>
               <TableHead>Características</TableHead>
             </TableRow>
           </TableHeader>
@@ -92,13 +92,13 @@ export function HotelRoomsTable({ data }: HotelRoomsTableProps) {
                 </TableCell>
                 
                 <TableCell>
-                  <div className="font-semibold text-green-600">
+                  <div className="font-semibold">
                     {formatPrice(room.salePrice)}
                   </div>
                 </TableCell>
                 
                 <TableCell>
-                  <div className="text-orange-600">
+                  <div>
                     {formatPrice(room.productionCost)}
                   </div>
                 </TableCell>
@@ -146,10 +146,10 @@ export function HotelRoomsTable({ data }: HotelRoomsTableProps) {
                   onClick={(e) => {
                     e.preventDefault();
                     const url = new URL(window.location.href);
-                    url.searchParams.set("page", (index + 1).toString());
+                    url.searchParams.set("page", (index).toString());
                     window.location.href = url.toString();
                   }}
-                  isActive={data.pageNumber === index + 1}
+                  isActive={data.pageNumber === index}
                 >
                   {index + 1}
                 </PaginationLink>

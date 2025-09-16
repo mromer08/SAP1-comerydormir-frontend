@@ -159,10 +159,10 @@ export function HotelsTable({ data }: HotelsTableProps) {
                   onClick={(e) => {
                     e.preventDefault();
                     const url = new URL(window.location.href);
-                    url.searchParams.set("page", (index + 1).toString());
+                    url.searchParams.set("page", (index).toString());
                     window.location.href = url.toString();
                   }}
-                  isActive={data.pageNumber === index + 1}
+                  isActive={data.pageNumber === index}
                 >
                   {index + 1}
                 </PaginationLink>
